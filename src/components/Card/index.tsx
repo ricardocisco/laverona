@@ -23,7 +23,12 @@ export function Card({ image, title, description, price }: Props) {
           <Title>{title}</Title>
           <Description>{description.substring(0, 20)}</Description>
         </View>
-        <Title>R$ {price.toFixed(2)}</Title>
+        <Title>
+          {price.toLocaleString("pt-BR", {
+            style: "currency",
+            currency: "BRL"
+          })}
+        </Title>
       </WrapperInfo>
     </Container>
   );

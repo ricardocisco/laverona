@@ -17,3 +17,24 @@ export const Logo = styled.Image`
   height: 36px;
   margin-right: 10px;
 `;
+
+export const ButtonBadge = styled.View`
+  position: relative;
+`;
+
+export const Badge = styled.View`
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: ${themes.COLORS.RED_100};
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const BadgeText = styled.Text`
+  color: ${themes.COLORS.WHITE};
+  font-size: ${themes.FONT_SIZE.SM_PLUS}px;
+`;

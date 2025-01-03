@@ -2,12 +2,22 @@ import Cart from "@/screens/Cart";
 import Details from "@/screens/Details";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { TabRoutes } from "./tab.routes";
+import themes from "@/themes/themes";
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
 export function StackRoutes() {
   return (
-    <Navigator>
+    <Navigator
+      screenOptions={{
+        headerTintColor: themes.COLORS.WHITE,
+        headerStyle: {
+          backgroundColor: themes.COLORS.GRAY_800
+        },
+        headerTitleStyle: { fontSize: 24 },
+        headerTransparent: true
+      }}
+    >
       <Screen
         name="Tab"
         component={TabRoutes}

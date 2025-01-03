@@ -13,29 +13,12 @@ type HomeProps = {
   navigation: NavigationProp<any>;
 };
 
-type Props = {
-  image: string;
-  title: string;
-  description: string;
-  price: number;
-};
-
 export default function Home({ navigation }: HomeProps) {
   const [pizza, setPizza] = useState("Ofertas");
   const [filteredData, setFilteredData] = useState(data);
 
   function handleCart() {
     navigation.navigate("Cart");
-  }
-
-  function handleDetails(item: Props) {
-    navigation.navigate("Details"),
-      {
-        image: item.image,
-        title: item.title,
-        description: item.description,
-        price: item.price
-      };
   }
 
   const handlePressButton = (category: string) => {
@@ -76,6 +59,7 @@ export default function Home({ navigation }: HomeProps) {
               activeOpacity={0.4}
               onPress={() =>
                 navigation.navigate("Details", {
+                  id: item.id,
                   title: item.name,
                   image: item.imagem,
                   price: item.price,

@@ -6,7 +6,7 @@ import themes from "@/themes/themes";
 
 export default function AppNavigator() {
   return (
-    <View style={{ flex: 1, backgroundColor: "#121214" }}>
+    <View style={{ flex: 1, backgroundColor: themes.COLORS.GRAY_800 }}>
       <NavigationContainer>
         <StackRoutes />
       </NavigationContainer>
