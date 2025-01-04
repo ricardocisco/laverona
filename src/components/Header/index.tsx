@@ -1,10 +1,10 @@
 import themes from "@/themes/themes";
 import { ButtonIcon } from "../ButtonIcon";
-import { InputText } from "../Input/styles";
 import { Badge, BadgeText, ButtonBadge, Container, Logo } from "./styles";
 import logoImg from "@/assets/pizza.png";
 import { View } from "react-native";
 import { useCartStore } from "@/store/cartStore";
+import { Input } from "../Input";
 
 type Props = {
   handleCart: () => void;
@@ -16,7 +16,7 @@ export function Header({ handleCart }: Props) {
   return (
     <Container>
       <Logo source={logoImg} />
-      <InputText
+      <Input
         placeholder="O que você procura?"
         placeholderTextColor={themes.COLORS.WHITE}
       />

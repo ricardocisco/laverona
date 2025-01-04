@@ -12,12 +12,12 @@ export const Container = styled(TouchableOpacity)<Props>`
   background-color: ${({ type }) =>
     type === "PRIMARY" ? themes.COLORS.GREEN_100 : themes.COLORS.RED_100};
 
-  min-height: 45px;
-  max-height: 45px;
+  min-height: 54px;
+  max-height: 54px;
 
   padding: 0 18px;
   border-radius: 8px;
-
+  align-items: center;
   justify-content: center;
 `;
 

@@ -11,8 +11,14 @@ import { useOrderStore } from "@/store/orderStore";
 import { Check } from "lucide-react-native";
 import themes from "@/themes/themes";
 import { Button } from "@/components/Button";
+import { ListEmpty } from "@/components/ListEmpty";
+import { NavigationProp } from "@react-navigation/native";
 
-export default function Order() {
+type OrderProps = {
+  navigation: NavigationProp<any>;
+};
+
+export default function Order({ navigation }: OrderProps) {
   const { orders } = useOrderStore();
 
   return (
@@ -37,7 +43,10 @@ export default function Order() {
           <WrapperInfo>
             <WrapperCheck>
               <Check size={24} color={themes.COLORS.GREEN_100} />
-              <Title>Pedido Concluído N°{item.date.getTime()}</Title>
+              <Title>
+                Pedido Concluído N°
+                {item.date.getTime()}
+              </Title>
             </WrapperCheck>
             {item.items.map((product) => (
               <WrapperCheck key={product.id}>
@@ -46,9 +55,25 @@ export default function Order() {
               </WrapperCheck>
             ))}
             <WrapperDetails>
-              <Button title="Detalhes" type="DESTRUCTIVE" />
+              <Button
+                title="Detalhes"
+                type="DESTRUCTIVE"
+                onPress={() =>
+                  navigation.navigate("DetailOrder", {
+                    id: item.id,
+                    date: item.date.toISOString(),
+                    items: item.items
+                  })
+                }
+              />
             </WrapperDetails>
           </WrapperInfo>
+        )}
+        ListEmptyComponent={() => (
+          <ListEmpty
+            title="Nenhum pedido encontrado"
+            description="parece que você não tem nenhum pedido :("
+          />
         )}
       />
     </Container>

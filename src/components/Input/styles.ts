@@ -10,6 +10,6 @@ export const InputText = styled.TextInput`
     font-family: ${theme.FONT_FAMILY.REGULAR};
   `};
 
-  padding: 14px;
+  padding: 18px;
   border-radius: 8px;
 `;

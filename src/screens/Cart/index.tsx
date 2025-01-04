@@ -63,7 +63,7 @@ export default function Cart() {
                 date: new Date(),
                 items: items
               });
-              console.log("Pedido finalizado com sucesso!", orders);
+
               clearCart();
             }}
           />
