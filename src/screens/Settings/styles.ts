@@ -5,7 +5,7 @@ import styled from "styled-components/native";
 export const Container = styled(SafeAreaView)`
   flex: 1;
   background-color: ${themes.COLORS.GRAY_800};
-  padding: 0 22px;
+  padding: 20px 22px;
 `;
 
 export const Title = styled.Text`
@@ -38,8 +38,7 @@ export const Image = styled.Image`
 `;
 
 export const WrapperInput = styled.View`
-  margin-top: 20px;
-  gap: 10px;
+  margin-top: 15px;
 `;
 
 export const WrapperText = styled.View`

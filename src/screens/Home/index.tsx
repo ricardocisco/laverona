@@ -21,6 +21,16 @@ export default function Home({ navigation }: HomeProps) {
     navigation.navigate("Cart");
   }
 
+  function handleDetails(item: any) {
+    navigation.navigate("Details", {
+      id: item.id,
+      title: item.name,
+      image: item.imagem,
+      price: item.price,
+      description: item.description
+    });
+  }
+
   const handlePressButton = (category: string) => {
     if (category === "Ofertas") {
       setFilteredData(data);
@@ -32,7 +42,7 @@ export default function Home({ navigation }: HomeProps) {
   return (
     <Container>
       <Header handleCart={handleCart} />
-      <CarouselBox />
+      <CarouselBox handleCarousel={handleDetails} />
       <ListSlugs>
         <FlatList
           data={["Ofertas", "6 Pedaços", "8 Pedaços", "12 Pedaços", "Meias"]}
@@ -55,18 +65,7 @@ export default function Home({ navigation }: HomeProps) {
           data={filteredData}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
-            <ButtonList
-              activeOpacity={0.4}
-              onPress={() =>
-                navigation.navigate("Details", {
-                  id: item.id,
-                  title: item.name,
-                  image: item.imagem,
-                  price: item.price,
-                  description: item.description
-                })
-              }
-            >
+            <ButtonList activeOpacity={0.4} onPress={() => handleDetails(item)}>
               <Card
                 image={item.imagem}
                 title={item.name}

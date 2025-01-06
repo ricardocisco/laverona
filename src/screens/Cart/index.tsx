@@ -12,14 +12,39 @@ import { Button } from "@/components/Button";
 import { useCartStore } from "@/store/cartStore";
 import { CardCart } from "@/components/CardCart";
 import { useOrderStore } from "@/store/orderStore";
+import ToastManager from "toastify-react-native";
+import { createNotifications } from "react-native-notificated";
+import { Check } from "lucide-react-native";
+import themes from "@/themes/themes";
+
+const { useNotifications } = createNotifications({});
 
 export default function Cart() {
+  const { notify } = useNotifications();
   const { items, total, clearCart } = useCartStore();
   const { addOrder, orders } = useOrderStore();
+
+  const showNotify = () => {
+    notify("success", {
+      params: {
+        description: "Pedido realizado com sucesso!",
+        title: "Sucesso",
+        style: {
+          leftIconSource: <Check color={themes.COLORS.GREEN_100} />,
+          accentColor: `${themes.COLORS.GRAY_300}`,
+          bgColor: `${themes.COLORS.GRAY_600}`,
+          titleColor: `${themes.COLORS.WHITE}`,
+          descriptionColor: `${themes.COLORS.WHITE}`,
+          borderWidth: 2
+        }
+      }
+    });
+  };
 
   return (
     <Container>
       <WrapperList>
+        <ToastManager />
         <FlatList
           data={items}
           keyExtractor={(item) => item.id}
@@ -63,8 +88,8 @@ export default function Cart() {
                 date: new Date(),
                 items: items
               });
-
               clearCart();
+              showNotify();
             }}
           />
         </WrapperButton>

@@ -13,7 +13,7 @@ export const WrapperDate = styled.View`
   align-items: center;
   justify-content: center;
   gap: 5px;
-  margin-top: 50px;
+  margin-top: 65px;
   padding: 12px;
   background-color: ${themes.COLORS.GRAY_700};
   border-radius: 12px;
@@ -26,7 +26,7 @@ export const Title = styled.Text`
 `;
 
 export const WrapperContainer = styled.View`
-  margin-top: 24px;
+  margin-top: 28px;
   padding: 12px;
   background-color: ${themes.COLORS.GRAY_700};
   border-radius: 12px;

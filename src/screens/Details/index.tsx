@@ -14,6 +14,9 @@ import { Button } from "@/components/Button";
 import { View } from "react-native";
 import { ButtonIcon } from "@/components/ButtonIcon";
 import { useCartStore } from "@/store/cartStore";
+import { notify } from "react-native-notificated";
+import { Check } from "lucide-react-native";
+import themes from "@/themes/themes";
 
 interface DetailsParams {
   id: string;
@@ -33,6 +36,23 @@ export default function Details() {
   const { addToCart, increment, decrement, items } = useCartStore();
 
   const itemFilter = items.find((item) => item.id === id);
+
+  const showNotify = () => {
+    notify("success", {
+      params: {
+        description: "Item adicionado ao carrinho!",
+        title: "Sucesso",
+        style: {
+          leftIconSource: <Check color={themes.COLORS.GREEN_100} />,
+          accentColor: `${themes.COLORS.GRAY_300}`,
+          bgColor: `${themes.COLORS.GRAY_600}`,
+          titleColor: `${themes.COLORS.WHITE}`,
+          descriptionColor: `${themes.COLORS.WHITE}`,
+          borderWidth: 2
+        }
+      }
+    });
+  };
 
   return (
     <Container>
@@ -65,7 +85,9 @@ export default function Details() {
         <Button
           type="PRIMARY"
           title="Adicionar ao carrinho"
-          onPress={() => addToCart({ id, title, price, image, description })}
+          onPress={() => {
+            addToCart({ id, title, price, image, description }), showNotify();
+          }}
         />
       </WrapperFooter>
     </Container>

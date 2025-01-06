@@ -10,10 +10,17 @@ import {
   WrapperText
 } from "./styles";
 import { ButtonIcon } from "@/components/ButtonIcon";
-import { Input } from "@/components/Input";
-import themes from "@/themes/themes";
-import { Button } from "@/components/Button";
 import * as ImagePicker from "expo-image-picker";
+import { SettingsCard } from "@/components/SettingsCard";
+import {
+  Bell,
+  CreditCard,
+  Pin,
+  ReceiptText,
+  Star,
+  TicketCheck
+} from "lucide-react-native";
+1;
 
 export default function Setting() {
   const [selectedImage, setSelectedImage] = React.useState<string | undefined>(
@@ -53,13 +60,36 @@ export default function Setting() {
           <Title>Ricardo</Title>
           <SubTitle>ricardo@gmail.com</SubTitle>
         </WrapperText>
-        <Input placeholder="Nome" placeholderTextColor={themes.COLORS.WHITE} />
-        <Input
-          placeholder="E-mail"
-          placeholderTextColor={themes.COLORS.WHITE}
+        <SettingsCard
+          Icon={Bell}
+          title="Notificações"
+          subtitle="Minha central de notificações"
         />
-        <Input placeholder="Senha" placeholderTextColor={themes.COLORS.WHITE} />
-        <Button title="Salvar" />
+        <SettingsCard
+          Icon={CreditCard}
+          title="Pagamentos"
+          subtitle="Meus saldos e cartões"
+        />
+        <SettingsCard
+          Icon={TicketCheck}
+          title="Cupons"
+          subtitle="Meus cupons de desconto"
+        />
+        <SettingsCard
+          Icon={Star}
+          title="Favorito"
+          subtitle="Meus locais favoritos"
+        />
+        <SettingsCard
+          Icon={Pin}
+          title="Endereços"
+          subtitle="Meus endereços de entrega"
+        />
+        <SettingsCard
+          Icon={ReceiptText}
+          title="Minha Conta"
+          subtitle="Minhas informações da conta"
+        />
       </WrapperInput>
     </Container>
   );

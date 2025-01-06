@@ -6,10 +6,10 @@ export const InputText = styled.TextInput`
   ${({ theme }) => css`
     background-color: ${theme.COLORS.GRAY_400};
     color: ${theme.COLORS.WHITE};
-    font-size: ${theme.FONT_SIZE.MD}px;
+    font-size: ${theme.FONT_SIZE.MD_PLUS}px;
     font-family: ${theme.FONT_FAMILY.REGULAR};
   `};
 
-  padding: 18px;
+  padding: 14px;
   border-radius: 8px;
 `;
