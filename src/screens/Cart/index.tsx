@@ -1,5 +1,5 @@
 import React from "react";
-import { FlatList } from "react-native";
+import { Alert, FlatList } from "react-native";
 import {
   Container,
   Text,
@@ -16,6 +16,7 @@ import ToastManager from "toastify-react-native";
 import { createNotifications } from "react-native-notificated";
 import { Check } from "lucide-react-native";
 import themes from "@/themes/themes";
+import { ListEmpty } from "@/components/ListEmpty";
 
 const { useNotifications } = createNotifications({});
 
@@ -58,6 +59,12 @@ export default function Cart() {
             />
           )}
           showsVerticalScrollIndicator={false}
+          ListEmptyComponent={() => (
+            <ListEmpty
+              title="Carrinho vazio"
+              description="parece que seu carrinho está vazio :("
+            />
+          )}
         />
       </WrapperList>
       <WrapperFooter>
@@ -83,13 +90,15 @@ export default function Cart() {
           <Button
             title="Finalizar compra"
             onPress={() => {
-              addOrder({
-                id: new Date().getTime().toString(),
-                date: new Date(),
-                items: items
-              });
-              clearCart();
-              showNotify();
+              items.length === 0
+                ? Alert.alert("Seu carrinho está vazio")
+                : (addOrder({
+                    id: new Date().getTime().toString(),
+                    date: new Date(),
+                    items: items
+                  }),
+                  clearCart(),
+                  showNotify());
             }}
           />
         </WrapperButton>

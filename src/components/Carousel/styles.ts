@@ -16,6 +16,7 @@ export const Title = styled.Text`
 export const TitleDescription = styled.Text`
   font-size: ${themes.FONT_SIZE.LG_PLUS}px;
   color: ${themes.COLORS.WHITE};
+  margin-top: 5px;
 `;
 
 export const Image = styled.Image`

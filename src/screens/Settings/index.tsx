@@ -20,6 +20,7 @@ import {
   Star,
   TicketCheck
 } from "lucide-react-native";
+import { ScrollView } from "react-native";
 1;
 
 export default function Setting() {
@@ -60,36 +61,38 @@ export default function Setting() {
           <Title>Ricardo</Title>
           <SubTitle>ricardo@gmail.com</SubTitle>
         </WrapperText>
-        <SettingsCard
-          Icon={Bell}
-          title="Notificações"
-          subtitle="Minha central de notificações"
-        />
-        <SettingsCard
-          Icon={CreditCard}
-          title="Pagamentos"
-          subtitle="Meus saldos e cartões"
-        />
-        <SettingsCard
-          Icon={TicketCheck}
-          title="Cupons"
-          subtitle="Meus cupons de desconto"
-        />
-        <SettingsCard
-          Icon={Star}
-          title="Favorito"
-          subtitle="Meus locais favoritos"
-        />
-        <SettingsCard
-          Icon={Pin}
-          title="Endereços"
-          subtitle="Meus endereços de entrega"
-        />
-        <SettingsCard
-          Icon={ReceiptText}
-          title="Minha Conta"
-          subtitle="Minhas informações da conta"
-        />
+        <ScrollView>
+          <SettingsCard
+            Icon={Bell}
+            title="Notificações"
+            subtitle="Minha central de notificações"
+          />
+          <SettingsCard
+            Icon={CreditCard}
+            title="Pagamentos"
+            subtitle="Meus saldos e cartões"
+          />
+          <SettingsCard
+            Icon={TicketCheck}
+            title="Cupons"
+            subtitle="Meus cupons de desconto"
+          />
+          <SettingsCard
+            Icon={Star}
+            title="Favorito"
+            subtitle="Meus locais favoritos"
+          />
+          <SettingsCard
+            Icon={Pin}
+            title="Endereços"
+            subtitle="Meus endereços de entrega"
+          />
+          <SettingsCard
+            Icon={ReceiptText}
+            title="Minha Conta"
+            subtitle="Minhas informações da conta"
+          />
+        </ScrollView>
       </WrapperInput>
     </Container>
   );

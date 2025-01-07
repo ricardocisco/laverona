@@ -4,7 +4,7 @@ import styled from "styled-components/native";
 export const Container = styled.View`
   flex-direction: row;
   border-radius: 12px;
-  border: 2px solid ${themes.COLORS.GRAY_700};
+  border: 1px solid ${themes.COLORS.GRAY_600};
   padding: 6px;
   margin: 5px 0;
   gap: 15px;

@@ -1,6 +1,7 @@
 import Home from "@/screens/Home";
 import Order from "@/screens/Order";
 import Setting from "@/screens/Settings";
+import themes from "@/themes/themes";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { House, ShoppingBag, Settings } from "lucide-react-native";
 
@@ -14,10 +15,10 @@ export function TabRoutes() {
         tabBarShowLabel: false,
         tabBarStyle: {
           paddingTop: 6,
-          backgroundColor: "#121214",
-          borderTopColor: "#2D2F33"
+          backgroundColor: `${themes.COLORS.GRAY_700}`,
+          borderTopColor: `${themes.COLORS.GRAY_600}`
         },
-        tabBarActiveTintColor: "#FFF"
+        tabBarActiveTintColor: `${themes.COLORS.WHITE}`
       }}
     >
       <Screen

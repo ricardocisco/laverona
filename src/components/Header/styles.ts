@@ -8,8 +8,8 @@ export const Container = styled.View`
   align-items: center;
   padding: 6px 24px;
   padding-top: ${Platform.OS === "android" ? 50 : 0}px;
-  border-bottom-width: 2px;
-  border-bottom-color: ${themes.COLORS.GRAY_700};
+  border-bottom-width: 1px;
+  border-bottom-color: ${themes.COLORS.GRAY_600};
 `;
 
 export const Logo = styled.Image`
